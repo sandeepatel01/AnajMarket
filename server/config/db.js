@@ -1,44 +1,44 @@
-// import mongoose from "mongoose";
-// import colors from "colors";
-// import dotenv from "dotenv";
+// const mongoose = require('mongoose');
+// require("dotenv").config();
 
-// dotenv.config();
+// const colors = require('colors')
 
-// const connectDB = async () => {
+// const dbConnect = async () => {
 //     try {
-//         const conn = await mongoose.connect(process.env.MONGODB_URL,
+//         const conn = await mongoose.connect(
+//             process.env.MONGODB_URL,
 //             {
 //                 useNewUrlParser: true,
 //                 useUnifiedTopology: true,
-//             });
-//         console.log(`Conneted To Mongodb Databse ${conn.connection.host}`.bgMagenta.white);
+//             })
+
+//         console.log(`DB connection successfully ${conn.connection.host}`.bgMagenta.white);
 //     } catch (error) {
-//         console.log(`Errro in Mongodb ${error}`.bgRed.white);
+//         console.log(`issue in db connection ${error}`.bgRed.white);
 //         process.exit(1);
 //     }
-// };
+// }
+// module.exports = dbConnect;
 
-// export default connectDB;
 
 
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 require("dotenv").config();
 
 const colors = require('colors')
 
-const dbConnect = async () => {
-    try {
-        const conn = await mongoose.connect(
-            process.env.MONGODB_URL,
-            {
-                useNewUrlParser: true,
-                useUnifiedTopology: true,
-            })
+const { MONGODB_URL } = process.env;
 
-        console.log(`DB connection successfully ${conn.connection.host}`.bgMagenta.white);
-    } catch (error) {
-        console.log(`issue in db connection ${error}`.bgRed.white);
-        process.exit(1);
-    }
-}
-module.exports = dbConnect;
+exports.connect = () => {
+    mongoose
+        .connect(MONGODB_URL, {
+            useNewUrlparser: true,
+            useUnifiedTopology: true,
+        })
+        .then(console.log(`DB Connection Success`.bgMagenta.white))
+        .catch((err) => {
+            console.log(`DB Connection Failed`);
+            console.log(err);
+            process.exit(1);
+        });
+};

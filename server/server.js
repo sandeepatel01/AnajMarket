@@ -6,6 +6,10 @@ const colors = require('colors');
 const morgan = require('morgan');
 const cors = require('cors');
 
+
+// CONNECTION TO THE DATABASE 
+const db = require("./config/db");
+
 // Import all routes 
 const authRoutes = require("./routers/auth");
 const categoryRoutes = require("./routers/categoryRoutes")
@@ -33,11 +37,11 @@ app.listen(PORT, () => {
     console.log(`server started successfully at ${process.env.DEV_MODE} mode on port ${PORT}`.bgCyan.white);
 })
 
-// CONNECTION TO THE DATABASE 
-const dbConnect = require("./config/db");
-dbConnect();
+
+// Connecting to database
+db.connect();
 
 // default route 
 app.get('/', (req, res) => {
-    res.send(`<h1>Welcome to ecommerce app</h1>`);
+    res.send(`<h1>Welcome to AnajMarket app</h1>`);
 });
