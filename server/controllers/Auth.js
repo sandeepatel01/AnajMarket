@@ -116,8 +116,6 @@ exports.login = async (req, res) => {
     }
 };
 
-
-
 //forgotPasswordController
 
 exports.forgotPassword = async (req, res) => {

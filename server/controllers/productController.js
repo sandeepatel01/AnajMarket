@@ -1,5 +1,6 @@
-const productModel = require("../models/Product");
-const CategoryModel = require("../models/Category");
+const productModel = require("../models/ProductModel");
+const CategoryModel = require("../models/CategoryModel");
+
 
 const fs = require('fs');
 const slugify = require("slugify")
@@ -9,10 +10,10 @@ require("dotenv").config();
 
 exports.createProductController = async (req, res) => {
     try {
-        const { name, description, price, category, quantity, shipping } =
+        const { name, description, price, category, quantity, sellerName, sellerContactNo, state, city, sellerAddress, shipping } =
             req.fields;
         const { photo } = req.files;
-        //alidation
+        //validation
         switch (true) {
             case !name:
                 return res.status(500).send({ error: "Name is Required" });
@@ -24,6 +25,16 @@ exports.createProductController = async (req, res) => {
                 return res.status(500).send({ error: "Category is Required" });
             case !quantity:
                 return res.status(500).send({ error: "Quantity is Required" });
+            case !sellerName:
+                return res.status(500).send({ error: "Seller name is Required" });
+            case !sellerContactNo:
+                return res.status(500).send({ error: "Seller contact number is Required" });
+            // case !state:
+            //     return res.status(500).send({ error: "State is Required" });
+            // case !city:
+            //     return res.status(500).send({ error: "City is Required" });
+            case !sellerAddress:
+                return res.status(500).send({ error: "Seller address is Required" });
             case photo && photo.size > 1000000:
                 return res
                     .status(500)
@@ -63,7 +74,7 @@ exports.getProductController = async (req, res) => {
         res.status(200).send({
             success: true,
             counTotal: products.length,
-            message: "ALlProducts ",
+            message: "AllProducts ",
             products,
         });
     } catch (error) {
@@ -136,10 +147,10 @@ exports.deleteProductController = async (req, res) => {
 //upate producta
 exports.updateProductController = async (req, res) => {
     try {
-        const { name, description, price, category, quantity, shipping } =
+        const { name, description, price, category, seller, quantity, sellerName, sellerContactNo, state, city, sellerAddress, shipping } =
             req.fields;
         const { photo } = req.files;
-        //alidation
+        //validation
         switch (true) {
             case !name:
                 return res.status(500).send({ error: "Name is Required" });
@@ -149,8 +160,20 @@ exports.updateProductController = async (req, res) => {
                 return res.status(500).send({ error: "Price is Required" });
             case !category:
                 return res.status(500).send({ error: "Category is Required" });
+            case !seller:
+                return res.status(500).send({ error: "Seller details is Required" });
             case !quantity:
                 return res.status(500).send({ error: "Quantity is Required" });
+            case !sellerName:
+                return res.status(500).send({ error: "Seller name is Required" });
+            case !sellerContactNo:
+                return res.status(500).send({ error: "Seller contact number is Required" });
+            case !state:
+                return res.status(500).send({ error: "State is Required" });
+            case !city:
+                return res.status(500).send({ error: "City is Required" });
+            case !sellerAddress:
+                return res.status(500).send({ error: "Seller address is Required" });
             case photo && photo.size > 1000000:
                 return res
                     .status(500)

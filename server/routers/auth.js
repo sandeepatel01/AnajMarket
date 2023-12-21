@@ -3,7 +3,7 @@ const express = require("express");
 const router = express.Router();
 
 const { register, login, testController, forgotPassword, updateProfileController } = require("../controllers/Auth");
-const { requireSignIn, isAdmin } = require("../middlewares/auth")
+const { requireSignIn, isAdmin } = require("../middlewares/authMiddleware")
 
 
 //routing
@@ -22,12 +22,12 @@ router.get("/test", requireSignIn, isAdmin, testController);
 
 //protected User route auth
 router.get("/user-auth", requireSignIn, (req, res) => {
-    res.status(200).send({ ok: true });
+  res.status(200).send({ ok: true });
 });
 
 //protected Admin route auth
 router.get("/admin-auth", requireSignIn, isAdmin, (req, res) => {
-    res.status(200).send({ ok: true });
+  res.status(200).send({ ok: true });
 });
 
 //update profile
