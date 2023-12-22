@@ -18,6 +18,7 @@
   box-shadow: 0 8px 6px -6px gray;
   --webkit-box-shadow: 0 8px 6px -6px gray;
   border-bottom: solid gray !important;
+
 }
 
 .nav-link {
@@ -55,19 +56,26 @@
 
 .footer {
   color: white;
+  /* color: #4a4a4a; */
   padding: 25px;
-  background: #000000;
+  /* background: #000000; */
+  /* background: #4cc553; */
+  background: #b1dc83;
   /* fallback for old browsers */
-  background: -webkit-linear-gradient(to right,
+  /* background: -webkit-linear-gradient(to right,
       #434343,
-      #000000);
+      #000000); */
+  background: -webkit-linear-gradient(to right,
+      #b1dc83,
+      #01aa48);
   /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to right, #434343, #000000);
+  /* background: linear-gradient(to right, #434343, #000000); */
+  background: linear-gradient(to right, #b1dc83, #01aa48);
 }
 
 .footer a {
   text-decoration: none;
-  color: white;
+  color: #e6e6e6;
   padding: 10px;
 }
 
