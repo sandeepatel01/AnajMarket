@@ -4,6 +4,7 @@ import { Checkbox, Radio } from "antd";
 import { Prices } from "../components/Prices";
 import { useCart } from "../context/cart";
 import axios from "axios";
+import { Link } from "react-router-dom";
 import toast from "react-hot-toast";
 import Layout from "./../components/Layout/Layout";
 import { AiOutlineReload } from "react-icons/ai";
@@ -109,12 +110,14 @@ const HomePage = () => {
   };
   return (
     <Layout title={"ALl Products - Best offers "}>
+
       {/* banner image */}
       <img
-        src="/images/banner.jpg"
+        src="/images/imggb.jpg"
         className="banner-img"
         alt="bannerimage"
         width={"100%"}
+      // height={"-50%"}
       />
 
       <div className="container-fluid row mt-3 home-page">
@@ -130,8 +133,9 @@ const HomePage = () => {
               </Checkbox>
             ))}
           </div>
+
           {/* price filter */}
-          <h4 className="text-center mt-4">Filter By Price</h4>
+          {/* <h4 className="text-center mt-4">Filter By Price</h4>
           <div className="d-flex flex-column">
             <Radio.Group onChange={(e) => setRadio(e.target.value)}>
               {Prices?.map((p) => (
@@ -140,7 +144,8 @@ const HomePage = () => {
                 </div>
               ))}
             </Radio.Group>
-          </div>
+          </div> */}
+
           <div className="d-flex flex-column">
             <button
               className="btn btn-danger"
@@ -180,7 +185,7 @@ const HomePage = () => {
                     >
                       More Details
                     </button>
-                    <button
+                    {/* <button
                       className="btn btn-dark ms-1"
                       onClick={() => {
                         setCart([...cart, p]);
@@ -192,7 +197,7 @@ const HomePage = () => {
                       }}
                     >
                       ADD TO CART
-                    </button>
+                    </button> */}
                   </div>
                 </div>
               </div>

@@ -35,7 +35,7 @@ exports.createProductController = async (req, res) => {
             //     return res.status(500).send({ error: "City is Required" });
             case !sellerAddress:
                 return res.status(500).send({ error: "Seller address is Required" });
-            case photo && photo.size > 1000000:
+            case photo && photo.size > 4000000:
                 return res
                     .status(500)
                     .send({ error: "photo is Required and should be less then 1mb" });
@@ -174,7 +174,7 @@ exports.updateProductController = async (req, res) => {
                 return res.status(500).send({ error: "City is Required" });
             case !sellerAddress:
                 return res.status(500).send({ error: "Seller address is Required" });
-            case photo && photo.size > 1000000:
+            case photo && photo.size > 4000000:
                 return res
                     .status(500)
                     .send({ error: "photo is Required and should be less then 1mb" });
@@ -248,7 +248,7 @@ exports.productCountController = async (req, res) => {
 // product list base on page
 exports.productListController = async (req, res) => {
     try {
-        const perPage = 3;
+        const perPage = 10;
         const page = req.params.page ? req.params.page : 1;
         const products = await productModel
             .find({})

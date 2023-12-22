@@ -19,10 +19,10 @@ const Contact = () => {
             vaialible
           </p>
           <p className="mt-3">
-            <BiMailSend /> : www.help@ecommerceapp.com
+            <BiMailSend /> : www.help@anajmarket.com
           </p>
           <p className="mt-3">
-            <BiPhoneCall /> : 012-3456789
+            <BiPhoneCall /> : 788-0784204
           </p>
           <p className="mt-3">
             <BiSupport /> : 1800-0000-0000 (toll free)
