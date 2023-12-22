@@ -6,6 +6,7 @@ const colors = require('colors');
 const morgan = require('morgan');
 const cors = require('cors');
 
+const path = require('path')
 
 // CONNECTION TO THE DATABASE 
 const db = require("./config/db");
@@ -23,6 +24,8 @@ const PORT = process.env.PORT || 8080;
 app.use(cors());
 app.use(express.json());
 app.use(morgan("dev"));
+
+app.use(express.static(path.join(__dirname, './build')))
 
 
 // routes mount 
@@ -42,6 +45,10 @@ app.listen(PORT, () => {
 db.connect();
 
 // default route 
-app.get('/', (req, res) => {
-    res.send(`<h1>Welcome to AnajMarket app</h1>`);
-});
+// app.get('/', (req, res) => {
+//     res.send(`<h1>Welcome to AnajMarket app</h1>`);
+// });
+
+app.use('*', function (req, res) {
+    res.sendFile(path.join(__dirname, './build/index.html'))
+})
