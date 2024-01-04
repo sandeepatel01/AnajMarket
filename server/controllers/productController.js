@@ -320,7 +320,7 @@ exports.realtedProductController = async (req, res) => {
 };
 
 
-// get prdocyst by catgory
+// get product by catgory
 exports.productCategoryController = async (req, res) => {
     try {
         const category = await CategoryModel.findOne({ slug: req.params.slug });
