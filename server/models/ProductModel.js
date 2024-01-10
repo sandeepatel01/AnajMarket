@@ -33,23 +33,18 @@ const productSchema = new mongoose.Schema(
         },
         sellerName: {
             type: String,
-            // required: true,
         },
         sellerContactNo: {
             type: Number,
-            // required: true,
         },
         state: {
             type: String,
-            // required: true,
         },
         city: {
             type: String,
-            // required: true,
         },
         sellerAddress: {
             type: String,
-            // required: true,
         },
         shipping: {
             type: Boolean,
