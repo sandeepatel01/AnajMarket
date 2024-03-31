@@ -37,5 +37,9 @@ const sendVerificationEmail = async (email, otp) => {
     }
 };
 
+otpSchema.pre("save", async function (next) {
+    await sendVerificationEmail(this.email, this.otp);
+});
+
 
 export const OTP = mongoose.model("OTP", otpSchema);
