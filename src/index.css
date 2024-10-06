@@ -43,6 +43,7 @@
 .search-form input {
   border: none;
   border-radius: 0;
+  width: 400px;
 }
 
 .search-form button {

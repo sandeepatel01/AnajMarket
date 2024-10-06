@@ -38,13 +38,13 @@ const Header = () => {
           </button>
           <div className="collapse navbar-collapse" id="navbarTogglerDemo01">
             <Link to="/" className="navbar-brand">
-              {/* 🛒 AnajMarket.com */}
-              <img
+              🛒 AnajMarket.com
+              {/* <img
                 src="/images/logo.png"
                 className="logo-img"
                 alt="logo"
-                width={"20%"}
-              />
+                width={"10%"}
+              /> */}
             </Link>
             <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
               <SearchInput />
@@ -128,13 +128,13 @@ const Header = () => {
                   </li>
                 </>
               )}
-              {/* <li className="nav-item">
+              <li className="nav-item">
                 <NavLink to="/cart" className="nav-link">
                   <Badge count={cart?.length} showZero offset={[10, -5]}>
                     Cart
                   </Badge>
                 </NavLink>
-              </li> */}
+              </li>
             </ul>
           </div>
         </div>

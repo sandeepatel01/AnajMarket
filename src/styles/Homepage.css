@@ -4,7 +4,11 @@
 }
 
 .logo-img {
-    margin-top: -25px;
+    position: absolute;
+    top: 0px;
+    width: 150px;
+
+    /* margin-top: -25px; */
 }
 
 .home-page h1 {

@@ -113,7 +113,7 @@ const HomePage = () => {
 
       {/* banner image */}
       <img
-        src="/images/imggb.jpg"
+        src="/images/img7.jpg"
         className="banner-img"
         alt="bannerimage"
         width={"100%"}
@@ -185,7 +185,7 @@ const HomePage = () => {
                     >
                       More Details
                     </button>
-                    {/* <button
+                    <button
                       className="btn btn-dark ms-1"
                       onClick={() => {
                         setCart([...cart, p]);
@@ -197,7 +197,7 @@ const HomePage = () => {
                       }}
                     >
                       ADD TO CART
-                    </button> */}
+                    </button>
                   </div>
                 </div>
               </div>

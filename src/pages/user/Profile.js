@@ -49,6 +49,7 @@ const Profile = () => {
             toast.error("Something went wrong");
         }
     };
+
     return (
         <Layout title={"Your Profile"}>
             <div className="container-fluid m-3 p-3 dashboard">
